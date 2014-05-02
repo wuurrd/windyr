@@ -1,1 +1,2 @@
 -e git+git://github.com/wuurrd/python-yr.git#egg=python-yr
+python-dateutil
