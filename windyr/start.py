@@ -9,7 +9,7 @@ from getpass import getpass
 
 class WindLocator(object):
     WORK_DAY = range(0, 5)  # Mon - Fri
-    WEEKEND = range(6, 8)  # Sat, Sun
+    WEEKEND = range(5, 7)  # Sat, Sun
     location = 'Norge/Akershus/Bærum/Halden_brygge'
     time_limits = {WORK_DAY: 16, WEEKEND: 8}
     wind_limit = 5.0  # m/s
