@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from yr.libyr import Yr
 from email.mime.text import MIMEText
-from datetime import datetime
+from datetime import datetime, timedelta
 from dateutil.parser import parse
 import smtplib
 from getpass import getpass
@@ -24,7 +24,7 @@ class WindLocator(object):
         This method tells us at after what hour in the day
         we are interested in getting wind data
         '''
-        day_of_week = datetime.today().weekday()
+        day_of_week = (datetime.today() + timedelta(days=1)).weekday()
         for weekdays, time in self.time_limits.items():
             if day_of_week in weekdays:
                 return time
@@ -33,7 +33,6 @@ class WindLocator(object):
         '''
         Sort by time of day, but only show today's date
         '''
-        from datetime import timedelta
         interesting_day = datetime.today().date() + timedelta(days=1)
         for interval in intervals:
             date = parse(interval['from']).date()
